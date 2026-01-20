@@ -1,0 +1,37 @@
+name: Deploy to Netlify
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛒 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🛠️ Create config.js from template
+        run: |
+          cp config.example.js config.js
+          sed -i "s|FIREBASE_APIKEY_PLACEHOLDER|${{ secrets.FIREBASE_APIKEY }}|g" config.js
+          sed -i "s|AUTH_DOMAIN_PLACEHOLDER|${{ secrets.AUTH_DOMAIN }}|g" config.js
+          sed -i "s|PROJECT_ID_PLACEHOLDER|${{ secrets.PROJECT_ID }}|g" config.js
+          sed -i "s|STORAGE_BUCKET_PLACEHOLDER|${{ secrets.STORAGE_BUCKET }}|g" config.js
+          sed -i "s|MESSAGING_SENDER_ID_PLACEHOLDER|${{ secrets.MESSAGING_SENDER_ID }}|g" config.js
+          sed -i "s|APP_ID_PLACEHOLDER|${{ secrets.APP_ID }}|g" config.js
+          sed -i "s|WEATHER_APIKEY_PLACEHOLDER|${{ secrets.WEATHER_APIKEY }}|g" config.js
+
+      - name: 🚀 Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: './'
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 5
