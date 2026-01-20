@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <title>El Meu Clima (Firebase + XML API)</title>
+    <!-- Meta per assegurar que la web sigui responsive en mòbils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <!-- SDK de Firebase (Versió 9 Compat) -->
+    <!-- Necessaris per connectar amb la base de dades de Google sense tenir un servidor propi -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore-compat.js"></script>
+</head>
+
+<body>
+    <!-- Contenidor principal de l'aplicació -->
+    <div class="container-tabla">
+        <h1>🌤️ Panell Meteorològic Avançat</h1>
+
+        <!-- SECCIÓ: Formulari d'entrada -->
+        <!-- Permet a l'usuari enviar dades cap a Firebase Firestore -->
+        <form id="form-ciutat">
+            <input type="text" id="input-ciutat" placeholder="Afegir nova ciutat (ex: Londres)" required>
+            <button type="submit">Afegir</button>
+        </form>
+
+        <!-- SECCIÓ: Controls de filtratge i ordenació -->
+        <!-- Aquesta part permet gestionar les dades ja descarregades localment -->
+        <div class="controls">
+            <select id="sort-select">
+                <option value="recent">Més recents primer</option>
+                <option value="asc">Nom (A-Z)</option>
+                <option value="desc">Nom (Z-A)</option>
+            </select>
+
+            <input type="text" id="search-input" placeholder="🔍 Buscar ciutat a la llista...">
+        </div>
+
+        <!-- SECCIÓ: Visualització de dades (Taula) -->
+        <!-- Les dades es generen dinàmicament a través de JavaScript des de l'API XML -->
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ciutat</th>
+                        <th>Icona</th>
+                        <th>Temp</th>
+                        <th>Sensació</th>
+                        <th>Humitat</th>
+                        <th>Núvols</th>
+                        <th>Amanecer</th>
+                        <th>Anochecer</th>
+                        <th>Acció</th>
+                    </tr>
+                </thead>
+                <!-- El cos de la taula s'omple mitjançant la funció renderitzarTaula() a app.js -->
+                <tbody id="cos-taula">
+                    <!-- Les files es carregaran aquí dinàmicament -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECCIÓ: Paginació -->
+        <!-- Controla quins elements de l'array es mostren per evitar saturar la API externa -->
+        <div class="pagination">
+            <button id="prev-page">Anterior</button>
+            <span id="page-info">Pàgina 1</span>
+            <button id="next-page">Següent</button>
+        </div>
+    </div>
+
+    <!-- Lògica de l'aplicació -->
+    <script src="app.js"></script>
+</body>
+
+</html>

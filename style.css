@@ -1,0 +1,146 @@
+/* 1. RESET Y BASE */
+* {
+    box-sizing: border-box; /* Inclou padding i bordes en l'amplada total */
+    margin: 0;              /* Elimina marges per defecte */
+    padding: 0;             /* Elimina paddings per defecte */
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif; /* Tipografia neta i moderna */
+    background-color: #f0f4f8;           /* Color de fons gris clar */
+    padding: 10px;                       /* Espaiat al voltant de la finestra */
+    display: flex;                       /* Activa flexbox per centrar el contingut */
+    justify-content: center;             /* Centrat horitzontal */
+}
+
+/* 2. CONTENEDOR PRINCIPAL */
+.container-tabla {
+    width: 95%;                 /* Amplada flexible per a mòbils */
+    max-width: 1400px;          /* Límit d'amplada en pantalles grans */
+    background: white;          /* Fons blanc per al tauler */
+    padding: 25px;              /* Espai interior del contenidor */
+    border-radius: 12px;        /* Cantonades arrodonides */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Ombra suau per donar profunditat */
+}
+
+h1 { 
+    text-align: center;         /* Centra el títol */
+    color: #1e3a8a;             /* Blau corporatiu */
+    margin-bottom: 10px;        /* Espai sota el títol */
+}
+
+/* 3. FORMULARIO Y CONTROLES */
+form { 
+    display: flex;              /* Aliniació horitzontal d'elements */
+    gap: 10px;                  /* Separació entre input i botó */
+    margin-bottom: 25px;        /* Espai sota el formulari */
+    justify-content: center;    /* Centra el formulari */
+}
+
+#input-ciutat { 
+    padding: 12px;              /* Farcit intern del text */
+    border: 1px solid #cbd5e1;  /* Vora grisa fina */
+    border-radius: 8px;         /* Arrodoniment del camp */
+    width: 100%;                /* Ocupa l'espai disponible */
+    max-width: 400px;           /* No permet que creixi massa */
+}
+
+button { 
+    padding: 10px 25px;         /* Mida del botó */
+    background: #2563eb;        /* Blau intens per a l'acció principal */
+    color: white;               /* Text blanc per a contrast */
+    border: none;               /* Sense vora */
+    border-radius: 8px;         /* Cantonades del botó */
+    cursor: pointer;            /* Canvia el cursor en passar per sobre */
+    font-weight: bold;          /* Text en negreta */
+}
+
+.controls {
+    display: flex;              /* Separa el buscador del selector d'ordre */
+    justify-content: space-between; /* Un a cada extrem */
+    align-items: center;        /* Centrat vertical */
+    margin-bottom: 20px;        /* Espai sobre la taula */
+    gap: 20px;                  /* Espai mínim entre controls */
+}
+
+#search-input {
+    flex: 1;                    /* Permet que s'estiri */
+    padding: 10px;              /* Farcit del cercador */
+    border: 1px solid #ddd;     /* Vora discreta */
+    border-radius: 8px;         /* Arrodoniment */
+    max-width: 300px;           /* Tamany controlat */
+}
+
+#sort-select {
+    padding: 10px;              /* Mida del desplegable */
+    border-radius: 8px;         /* Arrodoniment */
+    border: 1px solid #ddd;     /* Vora discreta */
+    background: white;          /* Fons net */
+}
+
+/* 4. TABLA RESPONSIVE */
+.table-responsive { 
+    width: 100%;                /* Ocupa tot l'ample del pare */
+    overflow-x: auto;           /* Scroll horitzontal en mòbils */
+} 
+
+table {
+    width: 100%;                /* La taula s'estira al 100% */
+    border-collapse: collapse;  /* Uneix les vores de les cel·les */
+    min-width: 800px;           /* Manté l'estructura en pantalles petites */
+}
+
+th, td {
+    padding: 15px;              /* Espaiat dins de cada cel·la */
+    text-align: center;         /* Centrat de dades */
+    border-bottom: 1px solid #e2e8f0; /* Línia divisòria entre files */
+}
+
+th {
+    background-color: #f8fafc;  /* Fons diferenciat per a la capçalera */
+    color: #64748b;             /* Color de text suau */
+    font-size: 0.9rem;          /* Mida de font per a títols */
+    text-transform: uppercase;  /* Majúscules per a jerarquia */
+}
+
+tr:hover { 
+    background-color: #f1f5f9;  /* Efecte visual en passar el ratolí */
+}
+
+.temp-main { 
+    font-weight: bold;          /* Ressalta la temperatura */
+    color: #2563eb;             /* Color blau destacat */
+    font-size: 1.2rem;          /* Mida més gran */
+}
+
+/* 5. PAGINACIÓN */
+.pagination {
+    display: flex;              /* Centrat d'elements de paginació */
+    justify-content: center;    /* Centrat horitzontal */
+    align-items: center;        /* Centrat vertical */
+    gap: 20px;                  /* Espai entre botons i text */
+    margin-top: 30px;           /* Separació de la taula */
+}
+
+.pagination button {
+    background: #334155;        /* Color fosc per als botons extres */
+    padding: 8px 15px;          /* Mida dels botons de pàgina */
+}
+
+.pagination button:disabled {
+    background: #cbd5e1;        /* Color gris per a botons inactius */
+    cursor: not-allowed;        /* Cursor de bloqueig */
+}
+
+.btn-delete {
+    background: #fee2e2;        /* Vermell molt suau per al fons */
+    color: #b91c1c;             /* Vermell intens per al text/icona */
+    border: none;               /* Sense vora */
+    padding: 8px 12px;          /* Mida del botó d'esborrar */
+    border-radius: 6px;         /* Arrodoniment */
+    cursor: pointer;            /* Cursor clicable */
+}
+
+.btn-delete:hover { 
+    background: #fecaca;        /* Ressaltat en passar el ratolí */
+}
