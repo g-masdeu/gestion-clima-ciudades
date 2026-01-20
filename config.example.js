@@ -1,11 +1,18 @@
-// 1. CONFIGURACIÓ DE SERVEIS EXTERNS
+/**
+ * CONFIG.EXAMPLE.JS
+ * Aquest és un fitxer de mostra. 
+ * Copia aquest fitxer com a 'config.js' i posa les teves claus reals.
+ * RECORDA: No pugis mai el 'config.js' real a GitHub.
+ */
+
 const firebaseConfig = {
-    apiKey: "TU_API_KEY",
-    authDomain: "NOMBRE_PROYECTO_FIREBASE.firebaseapp.com",
-    projectId: "TU_NOMBRE_DEL_PROYECTO",
-    storageBucket: "NOMBRE_PROYECTO_FIREBASE.firebasestorage.app",
-    messagingSenderId: "ID",
-    appId: "appId"
+    apiKey: "FIREBASE_APIKEY_PLACEHOLDER",
+    authDomain: "AUTH_DOMAIN_PLACEHOLDER",
+    projectId: "PROJECT_ID_PLACEHOLDER",
+    storageBucket: "STORAGE_BUCKET_PLACEHOLDER",
+    messagingSenderId: "MESSAGING_SENDER_ID_PLACEHOLDER",
+    appId: "APP_ID_PLACEHOLDER"
 };
 
-const API_KEY = "TU_API_KEY_DE_OPEN_WEATHER_API"; // Clau per a l'API del temps
+// Clau per a l'API d'OpenWeatherMap
+const API_KEY = "WEATHER_APIKEY_PLACEHOLDER";
