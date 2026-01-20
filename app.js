@@ -2,22 +2,10 @@
  * APP.JS - Lògica del Panell Meteorològic Avançat
  * Aquesta aplicació utilitza Firebase Firestore com a backend i OpenWeatherMap API (XML) com a font de dades.
  */
-
-// 1. CONFIGURACIÓ DE SERVEIS EXTERNS
-const firebaseConfig = {
-    apiKey: "AIzaSyDPfvixa50Yfq9ApKKqRjmEHbRi9ZsTcyk",
-    authDomain: "gestion-clima-ciudades.firebaseapp.com",
-    projectId: "gestion-clima-ciudades",
-    storageBucket: "gestion-clima-ciudades.firebasestorage.app",
-    messagingSenderId: "424868570194",
-    appId: "1:424868570194:web:9a3f2d09bff99098d5eb8b"
-};
-
 // Inicialització de Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore(); // Referència a la base de dades Firestore
 const ciutatsRef = db.collection("ciutats"); // Referència a la col·lecció de documents
-const API_KEY = "99c9c3bc23a312efbae64cfdc9b19108"; // Clau per a l'API del temps
 
 // 2. ESTAT DE L'APLICACIÓ (Variables globals per gestionar la UI)
 let totesLesCiutats = []; // Array on guardarem les dades brutes de Firebase
