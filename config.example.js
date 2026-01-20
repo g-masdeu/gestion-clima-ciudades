@@ -1,11 +1,10 @@
 /**
  * CONFIG.EXAMPLE.JS
- * Aquest és un fitxer de mostra. 
- * Copia aquest fitxer com a 'config.js' i posa les teves claus reals.
- * RECORDA: No pugis mai el 'config.js' real a GitHub.
+ * Plantilla per a GitHub. GitHub Actions farà servir aquest fitxer 
+ * per crear un config.js real amb les teves claus.
  */
 
-const firebaseConfig = {
+window.firebaseConfig = {
     apiKey: "FIREBASE_APIKEY_PLACEHOLDER",
     authDomain: "AUTH_DOMAIN_PLACEHOLDER",
     projectId: "PROJECT_ID_PLACEHOLDER",
@@ -14,5 +13,4 @@ const firebaseConfig = {
     appId: "APP_ID_PLACEHOLDER"
 };
 
-// Clau per a l'API d'OpenWeatherMap
-const API_KEY = "WEATHER_APIKEY_PLACEHOLDER";
+window.API_KEY = "WEATHER_APIKEY_PLACEHOLDER";

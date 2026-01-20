@@ -2,7 +2,13 @@
  * APP.JS - Lògica del Panell Meteorològic Avançat
  * Aquesta aplicació utilitza Firebase Firestore com a backend i OpenWeatherMap API (XML) com a font de dades.
  */
-// Inicialització de Firebase
+// Inicialització de Firebase llegint de l'objecte global window
+if (window.firebaseConfig) {
+    firebase.initializeApp(window.firebaseConfig);
+} else {
+    console.error("No s'ha trobat window.firebaseConfig. Revisa l'ordre dels scripts.");
+}
+
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore(); // Referència a la base de dades Firestore
 const ciutatsRef = db.collection("ciutats"); // Referència a la col·lecció de documents
@@ -19,7 +25,7 @@ let ordreActual = "recent"; // Criteri d'ordenació (recent, asc, desc)
  * Recupera dades en format XML, les parseja i retorna un objecte JS net.
  */
 async function obtenirClimaXML(ciutat) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciutat}&mode=xml&appid=${API_KEY}&units=metric&lang=ca`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciutat}&mode=xml&appid=${window.API_KEY}&units=metric&lang=ca`;
     try {
         const resposta = await fetch(url);
         if (!resposta.ok) return null;
