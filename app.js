@@ -46,7 +46,7 @@ async function obtenirClimaXML(ciutat) {
             // Manipulació de la cadena de temps (format ISO a HH:MM)
             sortida: xmlDoc.getElementsByTagName("sun")[0].getAttribute("rise").split("T")[1].substring(0,5),
             posta: xmlDoc.getElementsByTagName("sun")[0].getAttribute("set").split("T")[1].substring(0,5),
-            hora: xmlDoc.getElementsByTagName("lastupdate")[0].getAttribute("value").split("T").substring(0,5)  
+            hora: xmlDoc.getElementsByTagName("lastupdate")[0].getAttribute("value").split("T")[1].substring(0,5)  
         };
     } catch (e) { 
         console.error("Error API:", e);
@@ -60,7 +60,7 @@ async function obtenirClimaXML(ciutat) {
  */
 async function renderitzarTaula() {
     const cosTaula = document.getElementById("cos-taula");
-    cosTaula.innerHTML = "<tr><td colspan='9'>Carregant dades...</td></tr>";
+    cosTaula.innerHTML = "<tr><td colspan='10'>Carregant dades...</td></tr>";
 
     // A. FILTRATGE: Filtrem l'array segons el buscador
     let dadesFiltrades = totesLesCiutats.filter(c => 
