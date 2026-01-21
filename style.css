@@ -21,6 +21,7 @@ body {
     padding: 25px;              /* Espai interior del contenidor */
     border-radius: 12px;        /* Cantonades arrodonides */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Ombra suau per donar profunditat */
+    margin-top: 10px;
 }
 
 h1 { 

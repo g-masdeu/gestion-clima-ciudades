@@ -45,7 +45,8 @@ async function obtenirClimaXML(ciutat) {
             icona: xmlDoc.getElementsByTagName("weather")[0].getAttribute("icon"),
             // Manipulació de la cadena de temps (format ISO a HH:MM)
             sortida: xmlDoc.getElementsByTagName("sun")[0].getAttribute("rise").split("T")[1].substring(0,5),
-            posta: xmlDoc.getElementsByTagName("sun")[0].getAttribute("set").split("T")[1].substring(0,5)
+            posta: xmlDoc.getElementsByTagName("sun")[0].getAttribute("set").split("T")[1].substring(0,5),
+            hora: xmlDoc.getElementsByTagName("lastupdate")[0].getAttribute("value").split("T").substring(0,5)  
         };
     } catch (e) { 
         console.error("Error API:", e);
@@ -102,7 +103,8 @@ async function renderitzarTaula() {
                 <td class="text-small">${d.nuvols}</td>
                 <td>${d.sortida}</td>
                 <td>${d.posta}</td>
-                <td><button class="btn-delete" onclick="eliminarCiutat('${c.id}')">❌</button></td>
+                <td>${d.hora}</td>
+                <td><button class="btn-delete" onclick="eliminarCiutat('${c.id}') alt="eliminar">🗑️</button></td>
             `;
             cosTaula.appendChild(row);
         }
